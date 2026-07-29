@@ -10,20 +10,19 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "express": "^1^.17.1",
-    "node-nmap": ".4.1",
-    "pg": "^2^.7.1",
-    "helmet": "^1^.6.0",
-    "cors": "^3^.8.5",
-    "winston": "^4^.3.3",
-    "crypto": "^5^.0.1",
-    "bcrypt": "^6^.0.1"
+    "express": "^4.21.2",
+    "node-nmap": "^0.4.1",
+    "pg": "^8.13.1",
+    "helmet": "^8.0.0",
+    "cors": "^2.8.5",
+    "winston": "^3.17.0",
+    "bcrypt": "^6.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3^.0.15",
-    "jest": "^7^.4.7",
-    "webpack": "^6^.65.0",
-    "webpack-cli": "^1^.9.1"
+    "nodemon": "^3.1.7",
+    "jest": "^29.7.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
   },
   "keywords": [
     "cybersecurity",
