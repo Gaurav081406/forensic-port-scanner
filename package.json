@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "express": "^1^.17.1",
-    "nmap": ".4.1",
+    "node-nmap": ".4.1",
     "pg": "^2^.7.1",
     "helmet": "^1^.6.0",
     "cors": "^3^.8.5",
