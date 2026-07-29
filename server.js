@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
 const logger = require('./src/utils/logger');
-const connectDB = require('./src/utils/database');
+const { connectDB } = require('./src/utils/database');  // Fixed line
 const portScannerRoutes = require('./src/routes/portScanner');
 
 const app = express();
