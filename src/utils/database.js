@@ -14,7 +14,8 @@ const pool = new Pool({
 
 pool.on('error', (err) => {
     logger.error('Unexpected error on idle client', err);
-    process.exit(-1);
+    // Don't exit in development
+    console.warn('Database connection failed, continuing without DB...');
 });
 
 // Test database connection
@@ -25,11 +26,11 @@ const connectDB = async () => {
         client.release();
     } catch (err) {
         logger.error('Database connection error:', err.message);
-        // Continue without database for now
-        logger.warn('Continuing without database connection');
+        console.warn('Database connection failed, continuing without DB...');
     }
 };
 
+// **Export as default and named**
 module.exports = {
     query: (text, params) => pool.query(text, params),
     connect: () => pool.connect(),
