@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const logScan = async (userId, target, scanType) => {
+const logScan = async (userId, target, scanType, req) => {
     const logDir = path.join(__dirname, '../../logs');
     if (!fs.existsSync(logDir)) {
         fs.mkdirSync(logDir, { recursive: true });
@@ -14,7 +14,7 @@ const logScan = async (userId, target, scanType) => {
         action: 'PORT_SCAN_INITIATED',
         target,
         scanType,
-        ip: req?.ip
+        ip: req?.ip || 'unknown'
     };
     
     const logFile = path.join(logDir, 'audit.log');
