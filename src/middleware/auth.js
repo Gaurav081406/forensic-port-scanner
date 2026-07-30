@@ -9,7 +9,7 @@ const authenticate = (req, res, next) => {
         permissions: ['scan', 'export', 'view_results'],
         role: 'analyst'
     };
-    
+
     // Skip validation
     next();
 };
