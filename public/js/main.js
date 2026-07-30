@@ -18,9 +18,9 @@ class PortScanner extends React.Component {
             const response = await fetch('/api/port-scanner/scan', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'X-API-Key': 'forensic-scanner-key'
-                },
+    'Content-Type': 'application/json',
+    'X-API-Key': 'forensic-scanner-key-2024'  // Ye .env mein wali key hone chahiye
+},
                 body: JSON.stringify({
                     target: this.state.target,
                     scanType: this.state.scanType,
