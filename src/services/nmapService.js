@@ -49,7 +49,7 @@ const scan = async (target, scanType, ports) => {
     } catch (error) {
         logger.error('Scan failed:', error);
         // Return mock results if nmap fails
-        return generateMockResults(target, scanType, portString);
+        return generateMockResults(target, 'tcp', '1-1024');
     }
 };
 
