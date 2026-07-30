@@ -6,28 +6,29 @@ const { validateScanRequest } = require('../middleware/validation');
 const { logScan } = require('../utils/audit');
 
 // Start a new scan
+// POST /scan endpoint ko update karo
 router.post('/scan', authenticate, validateScanRequest, async (req, res) => {
-  try {
-    const { target, scanType, ports } = req.body;
-    
-    // Log scan initiation
-    await logScan(req.user.id, target, scanType);
-    
-    // Perform scan
-    const results = await nmapService.scan(target, scanType, ports);
-    
-    res.json({
-      success: true,
-      data: results,
-      timestamp: new Date().toISOString()
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      success: false,
-      error: error.message
-    });
-  }
+    try {
+        const { target, scanType, ports } = req.body;
+        
+        // Log scan initiation - pass req parameter
+        await logScan(req.user.id, target, scanType, req);
+        
+        // Perform scan
+        const results = await nmapService.scan(target, scanType, ports);
+        
+        res.json({
+            success: true,
+            data: results,
+            timestamp: new Date().toISOString()
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
 });
 
 // Get scan history
